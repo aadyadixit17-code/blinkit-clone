@@ -14,6 +14,10 @@ A responsive, feature-rich grocery delivery web application clone built to mimic
 - **Backend**: Node.js, Express.js
 - **Database**: MongoDB
 - **State Management**: React Context API
+[Project Screenshot](image1.jpeg)
+[Project Screenshot](image2.jpeg)
+[Project Screenshot](image3.jpeg)
+
 
 ## 📋 Getting Started
 
