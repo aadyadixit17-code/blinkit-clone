@@ -1,0 +1,29 @@
+[
+  { "name": "Tomato", "price": 30, "category": "Vegetables", "imageUrl": "https://media.istockphoto.com/id/1258142863/photo/tomatoes-isolate-on-white-background-tomato-half-isolated-tomatoes-side-view-whole-cut-slice.jpg?s=612x612&w=0&k=20&c=LXNZwfkHS3LfKvOxUpzFf1iawID63DVYEjeM7fMK-Xk="},
+  {"name": "Chips", "price": 25, "category": "Grocery", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXCEygP_m13xdRY6pkwI7pZJxHoctBVJ8FDMaKMcBFqC8lJ8d-mwG9hTk&s=10" },
+  { "name": "Biscuits", "price": 60, "category": "Grocery", "imageUrl": "https://static.vecteezy.com/system/resources/thumbnails/055/079/832/small/biscuit-bliss-unleashes-flavors-that-delight-all-senses-png.png" },
+  {"name": "Pulses", "price": 90, "category": "Grocery", "imageUrl": "https://t4.ftcdn.net/jpg/00/41/95/37/360_F_41953715_SKFEMEXxIFdF9hZMggTd2oF8KsxtTNDl.jpg" },
+  { "name": "Bread", "price": 25, "category": "Grocery", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRNViBFpNF7fUh5qtW47Xen20gc8TnjjhlrA8tAxJUax1fG4tMf07k7kfB&s=10"},
+  { "name": "Sugar", "price": 70, "category": "Grocery", "imageUrl": "https://lirp.cdn-website.com/cbf48001/dms3rep/multi/opt/Different+Types+of+Sugar-640w.jpg" },
+  { "name": "Wheat Flour", "price": 90, "category": "Grocery", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKBpRNO4lAjwEWnmqvJKfEbBQDaItVdcBmCzLXS5r0sec0Z8GERYeJQfeD&s=10" },
+  { "name": "Rice", "price": 95, "category": "Grocery", "imageUrl": "https://nutritionsource.hsph.harvard.edu/wp-content/uploads/2024/11/AdobeStock_195457011-1024x683.jpeg" },
+  { "name": "Soap", "price": 40, "category": "Grocery", "imageUrl": "https://cdn.britannica.com/03/144203-050-C3A995FD/Bars-soap.jpg" },
+  {"name": "Perfume", "price": 300, "category": "Healthcare", "imageUrl": "https://m.media-amazon.com/images/I/71Y4YNnJ7BL.jpg" },
+  { "name": "Mosturizer", "price": 255, "category": "Healthcare", "imageUrl": "https://www.verywellhealth.com/thmb/Z8xM8ZtPiZKwAIHobCTGe9az_2A=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/75167041-56a245445f9b58b7d0c8791e.jpg"},
+  { "name": "Ketchup", "price": 60, "category": "Grocery", "imageUrl": "https://www.greendna.in/cdn/shop/products/Tomato-Sauce_600x.jpg?v=1587722574" },
+  { "name": "Detergent", "price": 130, "category": "Grocery", "imageUrl": "https://media.istockphoto.com/id/512574098/photo/laundry-detergent-bottle.jpg?s=612x612&w=0&k=20&c=R84mRWZH90V4wWzIIwYzlrEMdbRAM0jJTlKs09_fIZ8=" },
+   { "name": "Coffee", "price": 60, "category": "Grocery", "imageUrl": "https://www.sharmispassions.com/wp-content/uploads/2012/07/espresso-coffee-recipe022.jpg" },
+  {"name": "Tea", "price": 30, "category": "Grocery", "imageUrl": "https://domf5oio6qrcr.cloudfront.net/medialibrary/8468/conversions/Tea-thumb.jpg" },
+  { "name": "Stationary", "price": 125, "category": "Study", "imageUrl": "https://m.media-amazon.com/images/I/61MsoKC8xNL._AC_UF1000,1000_QL80_.jpg"},
+  { "name": "Pen", "price": 60, "category": "Study", "imageUrl": "https://images.meesho.com/images/products/919882865/ivau5_512.webp?width=512" },
+  { "name": "Clothes", "price": 530, "category": "Fashion", "imageUrl": "https://t4.ftcdn.net/jpg/04/77/91/07/360_F_477910771_V79eDAiLQxW4igi1jRTyt77F4Lz3CanP.jpg" },
+  { "name": "Shoes", "price": 725, "category": "Fashion", "imageUrl": "https://assets.myntassets.com/w_200,q_50,,dpr_3,fl_progressive,f_webp/assets/images/2026/APRIL/23/ol5vJxSo_65da9d31cca04c7ebf95865bce594fd7.jpg" },
+  { "name": "Cosmetics", "price": 860, "category": "Fashion", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEGXPEEQOb9CkdecSjk-RvUnz2BY5AUn_aBfbXDwcCPGUjfPlJW92jtAil&s=10" },
+  {"name": "Juice", "price": 230, "category": "Grocery", "imageUrl": "https://img.magnific.com/free-vector/isolated-carton-juice-packages_1284-35985.jpg?semt=ais_hybrid&w=740&q=80" },
+  { "name": "Vegetables", "price": 225, "category": "Vegetables", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTz2NXNV1DYtcR6togUo973einxJVszuLxP9F5w-plaiT_tHsQlbTCiWI&s=10"},
+  { "name": "Fruits", "price": 360, "category": "Vegetables", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIguRwNvGFvWEwTWcwmp1BepLcMKHDQtoRff2DqVbHWA&s=10" },
+  
+  
+  
+  
+]
