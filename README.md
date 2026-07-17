@@ -24,4 +24,4 @@ A responsive, feature-rich grocery delivery web application clone built to mimic
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/aadyadixit17-code/blinkit-clone
