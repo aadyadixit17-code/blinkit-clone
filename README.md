@@ -15,14 +15,14 @@ A responsive, feature-rich grocery delivery web application clone built to mimic
 - **Database**: MongoDB
 - **State Management**: React Context API
 <p align="center">
-  <img src="image1.jpeg" alt="Login Screen" width="75%">
+  <img src="image3.jpeg" alt="Login Screen" width="75%">
 </p>
 
 <p align="center">
   <img src="image2.jpeg" alt="Signup Screen" width="75%">
 </p>
 <p align="center">
-  <img src="image3.jpeg" alt="Signup Screen" width="75%">
+  <img src="image1.jpeg" alt="Signup Screen" width="75%">
 </p>
 
 
