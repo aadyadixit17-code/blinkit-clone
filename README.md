@@ -66,11 +66,11 @@ Create a .env file inside your server/ directory:
 
 3. **Code snippet**
 ```bash
-PORT=5000
-MONGO_URI=your_mongodb_atlas_connection_string
-RAZORPAY_KEY_ID=your_razorpay_key_id
-RAZORPAY_KEY_SECRET=your_razorpay_secret
-Install Dependencies & Run:
+   PORT=5000
+   MONGO_URI=your_mongodb_atlas_connection_string
+   RAZORPAY_KEY_ID=your_razorpay_key_id
+   RAZORPAY_KEY_SECRET=your_razorpay_secret
+   Install Dependencies & Run:
 ```
 
 4. **Backend:**
