@@ -70,17 +70,16 @@ RAZORPAY_KEY_SECRET=your_razorpay_secret
 Install Dependencies & Run:
 
 4. **Backend:**
-
-Bash
-cd server
-npm install
-node server.js
+     Bash
+     cd server
+     npm install
+     node server.js
 
 5. **Frontend:**
-Bash
-cd client
-npm install
-npm start
+     Bash
+     cd client
+     npm install
+     npm start
 
 ## 🛡️ Security Note
 Sensitive credentials and local environment files (.env) are excluded from version control via .gitignore to ensure repository safety.
