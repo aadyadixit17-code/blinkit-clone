@@ -69,6 +69,7 @@ MONGO_URI=your_mongodb_atlas_connection_string
 RAZORPAY_KEY_ID=your_razorpay_key_id
 RAZORPAY_KEY_SECRET=your_razorpay_secret
 Install Dependencies & Run:
+```
 
 4. **Backend:**
      ```bash
@@ -76,6 +77,7 @@ Install Dependencies & Run:
      cd server
      npm install
      node server.js
+     ```
 
 5. **Frontend:**
      ```bash
@@ -83,6 +85,7 @@ Install Dependencies & Run:
      cd client
      npm install
      npm start
+     ```
 
 ## 🛡️ Security Note
 Sensitive credentials and local environment files (.env) are excluded from version control via .gitignore to ensure repository safety.
