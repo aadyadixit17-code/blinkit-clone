@@ -4,3 +4,6 @@
 .env
 # Ignore lock files if you want a clean repo (optional)
 package-lock.json
+node_modules
+.env
+client/node_modules
