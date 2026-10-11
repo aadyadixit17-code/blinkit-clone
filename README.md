@@ -43,7 +43,7 @@ Below is a visual breakdown of the application frontend, payment simulation, API
 | <img src="postman.jpeg" width="400" alt="Postman API Testing" /> | <img src="mongo db.jpeg" width="400" alt="MongoDB Atlas Storage" /> |
 | *Rigorously tested REST endpoints for products and orders.* | *Persistent JSON collections securely hosted in MongoDB Atlas.* |
 
-## 🚧 Features In Progress (Coming Soon)
+## 🚧 Features In Progress 
 
 To provide full transparency on the project's development roadmap, the following features are actively under development:
 * **📦 Order History & Management:** Dedicated `/orders` page to view past orders and detailed item statuses.
