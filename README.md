@@ -40,7 +40,7 @@ Below is a visual breakdown of the application frontend, payment simulation, API
 ### Backend API Testing & Cloud Database
 | Postman API Validation | MongoDB Atlas Database Cluster |
 | :---: | :---: |
-| <img src="postman.jpeg" width="400" alt="Postman API Testing" /> | <img src="mongodb.jpeg" width="400" alt="MongoDB Atlas Storage" /> |
+| <img src="postman.jpeg" width="400" alt="Postman API Testing" /> | <img src="mongo db.jpeg" width="400" alt="MongoDB Atlas Storage" /> |
 | *Rigorously tested REST endpoints for products and orders.* | *Persistent JSON collections securely hosted in MongoDB Atlas.* |
 
 ## 🚧 Features In Progress (Coming Soon)
