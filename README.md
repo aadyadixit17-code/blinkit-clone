@@ -60,7 +60,9 @@ To provide full transparency on the project's development roadmap, the following
    cd blinkit-clone
 
 2. **Configure Environment Variables:**
+```bash
 Create a .env file inside your server/ directory:
+```
 
 3. **Code snippet**
 ```bash
