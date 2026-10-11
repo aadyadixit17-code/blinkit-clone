@@ -63,6 +63,7 @@ To provide full transparency on the project's development roadmap, the following
 Create a .env file inside your server/ directory:
 
 3. **Code snippet**
+```bash
 PORT=5000
 MONGO_URI=your_mongodb_atlas_connection_string
 RAZORPAY_KEY_ID=your_razorpay_key_id
@@ -70,12 +71,14 @@ RAZORPAY_KEY_SECRET=your_razorpay_secret
 Install Dependencies & Run:
 
 4. **Backend:**
+     ```bash
      Bash
      cd server
      npm install
      node server.js
 
 5. **Frontend:**
+     ```bash
      Bash
      cd client
      npm install
