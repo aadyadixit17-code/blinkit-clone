@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { CartContext } from './CartContext';
 
-const ProductList = ({ selectedCategory = 'all', searchQuery = '', onCardClick }) => {
+const ProductList = ({ selectedCategory = 'all', searchQuery = '', onCardClick, apiBaseUrl = '' }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const { cart, addToCart, updateQuantity } = useContext(CartContext);
@@ -10,7 +10,7 @@ const ProductList = ({ selectedCategory = 'all', searchQuery = '', onCardClick }
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/products');
+        const response = await axios.get(`${apiBaseUrl}/api/products`);
         setProducts(response.data);
         setLoading(false);
       } catch (error) {
@@ -20,7 +20,7 @@ const ProductList = ({ selectedCategory = 'all', searchQuery = '', onCardClick }
     };
 
     fetchProducts();
-  }, []);
+  }, [apiBaseUrl]);
 
   // Case-insensitive filtering for both categories and search strings
   const filteredProducts = products.filter((product) => {

@@ -11,6 +11,11 @@ import ProductDetailModal from './ProductDetailModal';
 import CategoryNav from './CategoryNav';
 import { CartProvider, useCart } from './CartContext';
 
+// Dynamic API Base URL setup
+const API_BASE_URL = process.env.NODE_ENV === 'production' 
+  ? '' 
+  : 'http://localhost:5000';
+
 function AppContent() {
   // Initialize user & token state from localStorage
   const [user, setUser] = useState(() => localStorage.getItem('user_email') || null);
@@ -76,6 +81,7 @@ function AppContent() {
         <AuthModal 
           onClose={() => setIsLoginOpen(false)} 
           onLoginSuccess={handleLoginSuccess} 
+          apiBaseUrl={API_BASE_URL}
         />
       )}
 
@@ -104,11 +110,12 @@ function AppContent() {
               selectedCategory={selectedCategory}
               searchQuery={searchQuery} 
               onCardClick={(product) => setSelectedProduct(product)} 
+              apiBaseUrl={API_BASE_URL}
             />
           } 
         />
-        <Route path="/cart" element={<CartPage />} />
-        <Route path="/orders" element={<OrdersPage />} />
+        <Route path="/cart" element={<CartPage apiBaseUrl={API_BASE_URL} />} />
+        <Route path="/orders" element={<OrdersPage apiBaseUrl={API_BASE_URL} />} />
       </Routes>
     </Router>
   );
