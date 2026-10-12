@@ -1,38 +1,53 @@
 import React, { useContext } from 'react';
+import axios from 'axios';
 import { CartContext } from './CartContext';
 
-function CartPage() {
-  const { cart, removeFromCart, totalPrice } = useContext(CartContext);
+function CartPage({ apiBaseUrl = '' }) {
+  const { cart, removeFromCart, totalPrice, clearCart } = useContext(CartContext);
   
-  // Handle Razorpay Payment Gateway Checkout
-  const handleRazorpayPayment = () => {
+  // Handle Razorpay Payment Gateway Checkout with Backend Order Logging
+  const handleRazorpayPayment = async () => {
     if (!window.Razorpay) {
       alert("Razorpay SDK failed to load. Please check your internet connection or script tag in index.html.");
       return;
     }
 
-    const options = {
-      key: "rzp_test_mockkey", // Replace with your live/test Razorpay Key ID if needed
-      amount: totalPrice * 100, // Amount in paise (₹1 = 100 paise)
-      currency: "INR",
-      name: "Blinkit Clone",
-      description: "Quick Grocery Delivery Checkout",
-      handler: function (response) {
-        alert(`Payment Successful! Payment ID: ${response.razorpay_payment_id}`);
-        // You can clear cart or redirect to success page here if desired
-      },
-      prefill: {
-        name: "Test User",
-        email: "user@example.com",
-        contact: "9999999999"
-      },
-      theme: {
-        color: "#16a34a"
-      }
-    };
+    const mockPaymentId = `pay_test_${Math.floor(Math.random() * 1000000000)}`;
 
-    const paymentObject = new window.Razorpay(options);
-    paymentObject.open();
+    try {
+      // Save order to MongoDB backend database
+      await axios.post(`${apiBaseUrl}/api/orders`, {
+        items: cart,
+        totalAmount: totalPrice,
+        paymentId: mockPaymentId
+      });
+
+      const options = {
+        key: "rzp_test_1DP5mmOlF5G5ag", 
+        amount: totalPrice * 100, 
+        currency: "INR",
+        name: "Blinkit Clone",
+        description: "Quick Grocery Delivery Checkout",
+        handler: function (response) {
+          alert(`Payment Successful! Payment ID: ${response.razorpay_payment_id || mockPaymentId}`);
+          if (typeof clearCart === 'function') clearCart();
+        },
+        prefill: {
+          name: "Test User",
+          email: "user@example.com",
+          contact: "9999999999"
+        },
+        theme: {
+          color: "#16a34a"
+        }
+      };
+
+      const paymentObject = new window.Razorpay(options);
+      paymentObject.open();
+    } catch (err) {
+      console.error("Payment or order saving failed:", err);
+      alert("Failed to process payment. Please check your network connection.");
+    }
   };
 
   return (

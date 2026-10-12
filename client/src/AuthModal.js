@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const AuthModal = ({ onClose, onLoginSuccess }) => {
+const AuthModal = ({ onClose, onLoginSuccess, apiBaseUrl = '' }) => {
   const [isSignup, setIsSignup] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -14,8 +14,8 @@ const AuthModal = ({ onClose, onLoginSuccess }) => {
     setLoading(true);
 
     const endpoint = isSignup 
-      ? 'http://localhost:5000/api/auth/register' 
-      : 'http://localhost:5000/api/auth/login';
+      ? `${apiBaseUrl}/api/auth/register` 
+      : `${apiBaseUrl}/api/auth/login`;
 
     try {
       const response = await axios.post(endpoint, { email, password });

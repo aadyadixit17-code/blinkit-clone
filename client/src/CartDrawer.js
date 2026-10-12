@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import axios from 'axios';
 import { CartContext } from './CartContext';
 
-function CartDrawer({ isOpen, onClose }) {
+function CartDrawer({ isOpen, onClose, apiBaseUrl = '' }) {
   const { cart, removeFromCart, updateQuantity, totalPrice, clearCart } = useContext(CartContext);
   const [showRazorpayMock, setShowRazorpayMock] = useState(false);
   const [orderSuccess, setOrderSuccess] = useState(false);
@@ -19,8 +19,8 @@ function CartDrawer({ isOpen, onClose }) {
     setIsPaying(true);
     const mockPaymentId = `pay_test_${Math.floor(Math.random() * 1000000000)}`;
 
-    // Save order to MongoDB backend database
-    axios.post('http://localhost:5000/api/orders', {
+    // Save order to MongoDB backend database using dynamic apiBaseUrl
+    axios.post(`${apiBaseUrl}/api/orders`, {
       items: cart,
       totalAmount: totalPrice,
       paymentId: mockPaymentId
@@ -132,13 +132,13 @@ function CartDrawer({ isOpen, onClose }) {
                 <p style={{ margin: '0 0 5px 0', fontSize: '13px', color: '#9ca3af' }}>Price Summary</p>
                 <h3 style={{ margin: 0, fontSize: '22px' }}>₹{totalPrice}</h3>
                 <hr style={{ borderColor: '#374151', margin: '15px 0' }} />
-                <p style={{ margin: '0', fontSize: '12px', color: '#9ca3af' }}>Test User (user@example.com)</p>
+                <p style={{ margin: '0', fontSize: '12px', color: '#9ca3af' }}>Test User</p>
               </div>
 
               <div style={{ flex: 1.5, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                 <div>
                   <h4 style={{ margin: '0 0 10px 0', fontSize: '15px' }}>Test Mode Payment</h4>
-                  <p style={{ fontSize: '13px', color: '#9ca3af', margin: '0 0 20px 0' }}>Select a test payment simulation to complete your order securely.</p>
+                  <p style={{ fontSize: '13px', color: '#9ca3af', margin: '0 0 20px 0' }}>Select test payment simulation to complete your order securely.</p>
                 </div>
                 <button 
                   onClick={handleSimulatePayment}
