@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
 export const CartContext = createContext();
 
@@ -51,7 +51,13 @@ export const CartProvider = ({ children }) => {
     setCart((prevCart) => prevCart.filter((item) => (item._id || item.id) !== productId));
   };
 
-  // 6. Calculated properties
+  // 6. Clear entire cart (used on logout)
+  const clearCart = () => {
+    setCart([]);
+    localStorage.removeItem('blinkit_cart');
+  };
+
+  // 7. Calculated properties
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
   const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
@@ -62,6 +68,7 @@ export const CartProvider = ({ children }) => {
         addToCart,
         updateQuantity,
         removeFromCart,
+        clearCart,
         totalItems,
         totalPrice,
       }}
@@ -70,3 +77,6 @@ export const CartProvider = ({ children }) => {
     </CartContext.Provider>
   );
 };
+
+// Custom hook to consume CartContext easily
+export const useCart = () => useContext(CartContext);
