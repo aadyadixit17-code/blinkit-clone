@@ -5,6 +5,7 @@ const Razorpay = require('razorpay');
 const dns = require('dns');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+const path = require('path');
 
 // Fix SRV DNS lookup issues on Windows
 dns.setDefaultResultOrder('ipv4first');
@@ -169,6 +170,15 @@ app.post('/api/payment/checkout', async (req, res) => {
     res.status(500).json({ success: false, message: 'Server error creating order' });
   }
 });
+
+// 10. Serve Frontend Static Assets in Production
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../client/build')));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../client', 'build', 'index.html'));
+  });
+}
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
