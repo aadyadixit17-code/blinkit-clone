@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import axios from 'axios';
 import { CartContext } from './CartContext';
 
 function CartDrawer({ isOpen, onClose }) {
@@ -16,16 +17,29 @@ function CartDrawer({ isOpen, onClose }) {
 
   const handleSimulatePayment = () => {
     setIsPaying(true);
-    setTimeout(() => {
+    const mockPaymentId = `pay_test_${Math.floor(Math.random() * 1000000000)}`;
+
+    // Save order to MongoDB backend database
+    axios.post('http://localhost:5000/api/orders', {
+      items: cart,
+      totalAmount: totalPrice,
+      paymentId: mockPaymentId
+    })
+    .then(() => {
       setIsPaying(false);
       setShowRazorpayMock(false);
-      setPaymentId(`pay_test_${Math.floor(Math.random() * 1000000000)}`);
+      setPaymentId(mockPaymentId);
       setOrderSuccess(true);
       
       if (typeof clearCart === 'function') {
         clearCart();
       }
-    }, 1000);
+    })
+    .catch((err) => {
+      console.error('Error saving order to backend:', err);
+      setIsPaying(false);
+      alert('Payment simulated, but failed to save order to database. Check server connection.');
+    });
   };
 
   const handleCloseModal = () => {
@@ -46,7 +60,7 @@ function CartDrawer({ isOpen, onClose }) {
           <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '20px' }}>
             <div style={{ fontSize: '50px', marginBottom: '15px' }}>🎉</div>
             <h3 style={{ color: '#16a34a', margin: '0 0 10px 0' }}>Order Placed Successfully!</h3>
-            <p style={{ color: '#666', fontSize: '14px', marginBottom: '20px' }}>Thank you for shopping with Blinkit Clone.</p>
+            <p style={{ color: '#666', fontSize: '14px', marginBottom: '20px' }}>Thank you for shopping with Blinkit Clone. Your live delivery tracking is now active!</p>
             <div style={{ background: '#f3f4f6', padding: '12px', borderRadius: '6px', width: '100%', marginBottom: '20px', fontSize: '13px' }}>
               <strong>Payment ID:</strong> {paymentId}
             </div>

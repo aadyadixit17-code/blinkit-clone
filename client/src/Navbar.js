@@ -39,19 +39,19 @@ const Navbar = ({ onLoginClick, user, onLogout, searchQuery, setSearchQuery, onC
         style={{ padding: '8px 12px', border: '1px solid #ddd', borderRadius: '8px', width: '280px', outline: 'none' }}
       />
       
-      {/* Actions (Features & Cart) */}
+      {/* Actions (Orders, Live Tracking, Login, Cart) */}
       <div className="nav-buttons" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
         
-        {/* Quick Presentation Buttons for Remaining Features */}
-        <button 
-          onClick={() => alert("📦 My Orders History: Feature active for project presentation!")}
-          style={{ backgroundColor: '#ffffff', color: '#333', border: '1px solid #ccc', padding: '8px 12px', borderRadius: '8px', cursor: 'pointer', fontSize: '13px', fontWeight: 'bold' }}
-        >
-          📦 My Orders
-        </button>
+        {/* Working My Orders Link */}
+        <Link to="/orders" style={{ textDecoration: 'none' }}>
+          <button style={{ backgroundColor: '#ffffff', color: '#333', border: '1px solid #ccc', padding: '8px 12px', borderRadius: '8px', cursor: 'pointer', fontSize: '13px', fontWeight: 'bold' }}>
+            📦 My Orders
+          </button>
+        </Link>
 
+        {/* Live Tracking Presentation Button */}
         <button 
-          onClick={() => alert("⚡ Live Delivery Tracking Timer: Active for demo presentation!")}
+          onClick={() => alert("⚡ Live Delivery Tracking Timer: Active upon placing an order and viewing My Orders!")}
           style={{ backgroundColor: '#ffffff', color: '#333', border: '1px solid #ccc', padding: '8px 12px', borderRadius: '8px', cursor: 'pointer', fontSize: '13px', fontWeight: 'bold' }}
         >
           ⚡ Live Tracking

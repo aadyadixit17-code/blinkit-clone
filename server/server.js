@@ -28,7 +28,18 @@ const productSchema = new mongoose.Schema({
 
 const Product = mongoose.model('Product', productSchema, 'products');
 
-// 3. Products API
+// 3. Order Schema & Model
+const orderSchema = new mongoose.Schema({
+  items: Array,
+  totalAmount: Number,
+  paymentId: String,
+  status: { type: String, default: 'Order Placed & Out for Delivery' },
+  createdAt: { type: Date, default: Date.now }
+});
+
+const Order = mongoose.model('Order', orderSchema, 'orders');
+
+// 4. Products API
 app.get('/api/products', async (req, res) => {
   try {
     const products = await Product.find({});
@@ -38,19 +49,39 @@ app.get('/api/products', async (req, res) => {
   }
 });
 
-// 4. Initialize Razorpay (Replace with your Key ID & Secret if you have them)
+// 5. Orders API Routes
+app.post('/api/orders', async (req, res) => {
+  try {
+    const { items, totalAmount, paymentId } = req.body;
+    const newOrder = new Order({ items, totalAmount, paymentId });
+    await newOrder.save();
+    res.status(201).json({ success: true, order: newOrder });
+  } catch (error) {
+    console.error('Error saving order:', error);
+    res.status(500).json({ success: false, message: 'Failed to save order' });
+  }
+});
+
+app.get('/api/orders', async (req, res) => {
+  try {
+    const orders = await Order.find({}).sort({ createdAt: -1 });
+    res.json(orders);
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching orders' });
+  }
+});
+
+// 6. Initialize Razorpay
 const razorpay = new Razorpay({
   key_id: process.env.RAZORPAY_KEY_ID || 'rzp_test_1DP5mmOlF5G5ag',
   key_secret: process.env.RAZORPAY_KEY_SECRET || 'placeholder_secret',
 });
 
-// 5. Payment Checkout Route
-// 5. Payment Checkout Route with Robust Fallback
+// 7. Payment Checkout Route with Robust Fallback
 app.post('/api/payment/checkout', async (req, res) => {
   try {
     const { amount } = req.body;
 
-    // Try creating a real order if keys are configured
     try {
       const options = {
         amount: amount * 100, // Converts rupees to paise
@@ -62,7 +93,6 @@ app.post('/api/payment/checkout', async (req, res) => {
     } catch (razorpayError) {
       console.warn('Razorpay API call failed, falling back to local mock order:', razorpayError.message);
       
-      // Fallback mock order so your demo never breaks
       const mockOrder = {
         id: `order_mock_${Date.now()}`,
         amount: amount * 100,

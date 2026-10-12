@@ -3,11 +3,12 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './Navbar';
 import ProductList from './ProductList';
 import CartPage from './CartPage';
+import OrdersPage from './OrdersPage'; // IMPORT ORDERS PAGE
 import CartDrawer from './CartDrawer';
 import LocationModal from './LocationModal';
 import AuthModal from './AuthModal';
 import ProductDetailModal from './ProductDetailModal';
-import CategoryNav from './CategoryNav'; // IMPORT CATEGORY NAV
+import CategoryNav from './CategoryNav';
 import { CartProvider } from './CartContext';
 
 function App() {
@@ -82,6 +83,7 @@ function App() {
             } 
           />
           <Route path="/cart" element={<CartPage />} />
+          <Route path="/orders" element={<OrdersPage />} /> {/* NEW ORDERS ROUTE */}
         </Routes>
       </Router>
     </CartProvider>
