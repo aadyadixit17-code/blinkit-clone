@@ -3,6 +3,8 @@
 A feature-rich quick-commerce web application inspired by Blinkit, developed with **React**, **Express.js**, and **MongoDB Atlas**. It features dynamic product browsing, real-time cart state management, secure email/JWT authentication, live order tracking, and a secure payment gateway workflow.
 
 ---
+## 🚀 Live Demo
+**Deployed App:** [https://blinkit-clone-5xy9.onrender.com/](https://blinkit-clone-5xy9.onrender.com/)
 
 ## 🚀 Implemented Features
 
