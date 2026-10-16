@@ -4,7 +4,7 @@ A feature-rich quick-commerce web application inspired by Blinkit, developed wit
 
 ---
 ## 🚀 Live Demo
-**Deployed App:** [https://blinkit-clone-5xy9.onrender.com/](https://blinkit-clone-5xy9.onrender.com/)
+**Deployed App:** [https://blinkit-clone-1-iziw.onrender.com/] (https://blinkit-clone-1-iziw.onrender.com/)
 
 ## 🚀 Implemented Features
 
