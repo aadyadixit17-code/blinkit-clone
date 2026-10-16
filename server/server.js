@@ -19,10 +19,12 @@ app.use(express.json());
 const JWT_SECRET = process.env.JWT_SECRET || 'your_super_secret_jwt_key_123';
 
 // 1. Connect MongoDB
-const MONGO_URI = process.env.MONGO_URI || 'mongodb+srv://aadyadixit17_db_user:Aadya17@cluster0.xpgfhqo.mongodb.net/blinkit?retryWrites=true&w=majority';
-mongoose.connect(MONGO_URI)
-  .then(() => console.log('MongoDB Connected Successfully'))
-  .catch((err) => console.error('MongoDB Connection Error:', err));
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => console.log('MongoDB connected successfully'))
+.catch((err) => console.error('MongoDB connection error:', err));
 
 // 2. Product Schema & Model
 const productSchema = new mongoose.Schema({
